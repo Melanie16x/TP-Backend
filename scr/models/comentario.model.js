@@ -10,6 +10,9 @@ const Comentario = sequelize.define('comentario', {
         type: DataTypes.STRING(100),
         allowNull: false
     },
+    postId: {
+        type: DataTypes.INTEGER,
+    },
     estado: {
         type: DataTypes.BOOLEAN,
         defaultValue: true

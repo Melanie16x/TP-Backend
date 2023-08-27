@@ -1,4 +1,5 @@
 const { DataTypes, sequelize } = require('../../database');
+const Comentario = require('./comentario.model');
 
 const Post = sequelize.define('post', {
     postId: {
@@ -47,5 +48,7 @@ Post.sync({ force: false })
 .then(() => {
     console.log('Tabla posts creada');
 });
+
+Post.hasMany(Comentario, { as: 'postCometario', foreignKey: 'postId' });
 
 module.exports = Post;
