@@ -1,7 +1,8 @@
 const { DataTypes, sequelize } = require('../../database');
+const Post = require('./post.model');
 
 const Usuario = sequelize.define('usuario', {
-    id: {
+    usuarioId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -54,5 +55,7 @@ Usuario.sync({ force: false })
 }).catch(err => {
     console.error('Error al crear tabla:', err);
 });
+
+Usuario.hasMany(Post, { as: 'usuarioPost', foreignKey: 'usuarioId' });
 
 module.exports = Usuario;

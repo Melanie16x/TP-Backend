@@ -1,7 +1,7 @@
 const { DataTypes, sequelize } = require('../../database');
 
 const Post = sequelize.define('post', {
-    id: {
+    postId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -10,9 +10,12 @@ const Post = sequelize.define('post', {
         type: DataTypes.STRING(100),
         allowNull: false
     },
-    descripcion_post: {
+    descripcionPost: {
         type: DataTypes.STRING(100),
         allowNull: false
+    },
+    usuarioId: {
+        type: DataTypes.INTEGER,
     },
     estado: {
         type: DataTypes.BOOLEAN,
