@@ -21,6 +21,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
-// app.use(require('./scr/routes'));
+app.use(require('./scr/routes/usuario.route'));
+app.use(require('./scr/routes/post.route'));
+app.use(require('./scr/routes/comentario.route'));
 
 app.listen(port, () => console.log(`Servidor corriendo en el puerto ${port}`))
