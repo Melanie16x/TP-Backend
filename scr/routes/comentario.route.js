@@ -7,6 +7,7 @@ const {
     crearComentario
 } = require('../controllers/comentario.controller');
 
+// Operaciones basicas que permiten obtener todos los comentarios y crear un comentario
 routerComentario.get('/api/obtenerComentarios', obtenerComentarios);
 routerComentario.post('/api/crearComentario', validateComment, validateSchema, crearComentario);
 

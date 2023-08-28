@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator');
 
-// verifica si hay errores
+// verifica si hay errores de validación
 const validateSchema = (req, res, next) => {
   const errors = validationResult(req);
 

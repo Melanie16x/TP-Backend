@@ -32,7 +32,11 @@ ctrlComentario.crearComentario = async (req, res) => {
             postId
         });
 
-        await nuevoComentario.save();
+        if(!nuevoComentario){
+            throw({
+                status:400, message:'Error al crear el comentario'
+            })
+        }
 
         return res.status(201).json({ message: '!!Comentario creado!!'})
     } catch (error) {

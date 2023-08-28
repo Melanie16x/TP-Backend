@@ -45,11 +45,15 @@ const Post = sequelize.define('post', {
     tableName: 'posts'
 })
 
+// Creacion de la tabla (si no está creada)
 Post.sync({ force: false })
 .then(() => {
     console.log('Tabla posts creada');
+}).catch(err => {
+    console.error('Error al crear tabla:', err);
 });
 
+// Relacion 1 a N entre las tablas post y comentario
 Post.hasMany(Comentario, { as: 'postCometario', foreignKey: 'postId' });
 
 module.exports = Post;

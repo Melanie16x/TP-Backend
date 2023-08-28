@@ -40,6 +40,7 @@ const Comentario = sequelize.define('comentario', {
     tableName: 'comentarios'
 })
 
+// Creacion de la tabla (si no está creada)
 Comentario.sync({ force: false })
 .then(() => {
     console.log('Tabla cometarios creada');

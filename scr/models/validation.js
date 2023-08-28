@@ -1,5 +1,6 @@
 const { checkSchema } = require('express-validator');
 
+// Se validan los datos de los usuarios
 const validateUser = checkSchema({
   nombre: {
     notEmpty:{
@@ -25,6 +26,7 @@ const validateUser = checkSchema({
   }
 });
 
+// Se validan los datos de los Posts
 const validatePost = checkSchema({
   titulo :{
     isString: true
@@ -37,6 +39,7 @@ const validatePost = checkSchema({
   }
 });
 
+// Se validan los datos de los comentarios
 const validateComment = checkSchema({
   descripcionComentario: {
     notEmpty: {

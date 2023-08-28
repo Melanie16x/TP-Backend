@@ -48,7 +48,11 @@ ctrlPost.crearPost = async (req, res) => {
             usuarioId
         });
 
-        await nuevoPost.save();
+        if(!nuevoPost){
+            throw({
+                status:400, message:'Error al crear el post'
+            })
+        };
 
         return res.status(201).json({
             message : 'El post fue creado correctamente.'

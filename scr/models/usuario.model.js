@@ -50,6 +50,7 @@ const Usuario = sequelize.define('usuario', {
     tableName: 'usuarios'
 })
 
+// Creacion de la tabla (si no está creada)
 Usuario.sync({ force: false })
 .then(() => {
     console.log('Tabla usuarios creada');
@@ -57,6 +58,7 @@ Usuario.sync({ force: false })
     console.error('Error al crear tabla:', err);
 });
 
+// Relacion 1 a N entre usuario y post
 Usuario.hasMany(Post, { as: 'usuarioPost', foreignKey: 'usuarioId' });
 
 module.exports = Usuario;

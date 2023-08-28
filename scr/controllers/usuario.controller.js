@@ -36,7 +36,6 @@ ctrlUsuario.crearUsuario = async (req, res) => {
             contraseña
         });
         
-        // await nuevoUsuario.save();
         if(!nuevoUsuario){
             throw({
                 status:400, message:'Error al crear el usuario'
