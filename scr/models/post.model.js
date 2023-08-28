@@ -1,6 +1,7 @@
 const { DataTypes, sequelize } = require('../../database');
 const Comentario = require('./comentario.model');
 
+// modelo de la tabla posts
 const Post = sequelize.define('post', {
     postId: {
         type: DataTypes.INTEGER,

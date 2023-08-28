@@ -1,5 +1,6 @@
 const { DataTypes, sequelize } = require('../../database');
 
+// modelo de la tabla comentarios
 const Comentario = sequelize.define('comentario', {
     comentarioId: {
         type: DataTypes.INTEGER,

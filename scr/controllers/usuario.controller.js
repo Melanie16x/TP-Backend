@@ -1,7 +1,7 @@
 const Usuario = require('../models/usuario.model');
 const ctrlUsuario = {};
 
-// Obtener todas las reservas
+// Obtener todos los usuarios
 ctrlUsuario.obtenerUsuarios = async (req, res) => {
     try {
         const usuarios = await Usuario.findAll({
@@ -19,7 +19,7 @@ ctrlUsuario.obtenerUsuarios = async (req, res) => {
     }
 }
 
-// Crear una reserva
+// Crear un usuario
 ctrlUsuario.crearUsuario = async (req, res) => {
     const {
         nombre,
@@ -35,9 +35,13 @@ ctrlUsuario.crearUsuario = async (req, res) => {
             email,
             contraseña
         });
-
-        await nuevoUsuario.save();
-
+        
+        // await nuevoUsuario.save();
+        if(!nuevoUsuario){
+            throw({
+                status:400, message:'Error al crear el usuario'
+            })
+        }
         return res.status(201).json({ message: '!!Usuario creado!!'})
     } catch (error) {
         console.log('Error al crear al usuario', error);

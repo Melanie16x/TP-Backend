@@ -1,14 +1,14 @@
+// rutas para la utilizacion de los controladores y validacion
 const routerUsuario = require('express').Router();
-
+const { body, validationResult } = require('express-validator');
+const { validateUser } = require('../models/validation');
+const { validateSchema } = require('../middleware/schema');
 const {
     obtenerUsuarios,
     crearUsuario
-} = require('../controllers/usuario.controller')
+} = require('../controllers/usuario.controller');
 
-// Obtener todas las reservas
 routerUsuario.get('/api/obtenerUsuarios', obtenerUsuarios);
- 
-// Crear una reserva
-routerUsuario.post('/api/crearUsuario', crearUsuario);
+routerUsuario.post('/api/crearUsuario', validateUser, validateSchema, crearUsuario);
 
 module.exports = routerUsuario;

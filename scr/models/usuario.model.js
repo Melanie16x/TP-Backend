@@ -1,6 +1,7 @@
 const { DataTypes, sequelize } = require('../../database');
 const Post = require('./post.model');
 
+// modelo de la tabla usuarios
 const Usuario = sequelize.define('usuario', {
     usuarioId: {
         type: DataTypes.INTEGER,

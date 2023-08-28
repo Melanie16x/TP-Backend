@@ -1,6 +1,7 @@
 const Comentario = require('../models/comentario.model');
 const ctrlComentario = {};
 
+// obtener todos los comentarios
 ctrlComentario.obtenerComentarios = async (req, res) => {
     try {
         const comentarios = await Comentario.findAll({
@@ -18,6 +19,7 @@ ctrlComentario.obtenerComentarios = async (req, res) => {
     }
 }
 
+// crear un comentario
 ctrlComentario.crearComentario = async (req, res) => {
     const {
         descripcionComentario,

@@ -1,7 +1,7 @@
 const Post = require('../models/post.model');
 const ctrlPost = {};
 
-// Obtener todas las reservas
+// Obtener todos los posts
 ctrlPost.obtenerPosts = async (req, res) => {
     try {
         const posts = await Post.findAll({
@@ -19,7 +19,7 @@ ctrlPost.obtenerPosts = async (req, res) => {
     }
 }
 
-// Obtener una reserva
+// Obtener un post
 ctrlPost.obtenerPost = async (req, res) => {
     try {
         const { postId } = req.params;
@@ -33,7 +33,7 @@ ctrlPost.obtenerPost = async (req, res) => {
     }
 }
 
-// Crear una reserva
+// Crear un post
 ctrlPost.crearPost = async (req, res) => {
     const {
         titulo,
@@ -61,7 +61,7 @@ ctrlPost.crearPost = async (req, res) => {
     }
 }
 
-// Actualizar una reserva
+// Actualizar un post
 ctrlPost.actualizarPost = async (req, res) => {
     try {
         const { postId } = req.params;
@@ -78,7 +78,7 @@ ctrlPost.actualizarPost = async (req, res) => {
     }
 }
 
-// Eliminar una reserva de forma lógica
+// Eliminar de forma logica un post
 ctrlPost.eliminarPost = async (req, res) => {
     const { postId } = req.params;
     try {
